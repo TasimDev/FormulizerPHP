@@ -24,15 +24,6 @@ body {
     overflow: hidden;
 }
 
-h4.first-last-name {
-    font-size: 1.2em;
-    margin-bottom: 1.2em;
-}
-
-a.log-out {
-    text-decoration: none;
-    color: rgb(63, 34, 102);
-}
 
 /* KEYFRAMES */
 
@@ -200,6 +191,16 @@ a.log-out {
     width: 30px;
     background: rgb(63, 34, 102);
 
+}
+
+.container .first-last-name {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+.container .log-out {
+    text-decoration: none;
+    color: rgb(63, 34, 102);
 }
 
 .container form .user-details {
