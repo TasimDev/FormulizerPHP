@@ -56,6 +56,15 @@ body {
 
 }
 
+.alert {
+    padding: 6px;
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(132, 0, 255, 0.418);
+    border: 1px solid rgba(132, 0, 255, 0.322);
+    margin-bottom: 3em;
+}
+
 /* KEYFRAMES */
 
 @-webkit-keyframes animateCloud {

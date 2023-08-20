@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="style-login-page.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
     <title>Login Page</title>
 </head>
 
@@ -49,6 +52,23 @@
             </div>
         </div>
         <div class="login">
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="alert alert-<?php echo $_SESSION['message']['alert'] ?> msg">
+                    <?php echo $_SESSION['message']['text'] ?>
+                </div>
+                <script>
+                    (function () {
+                        // removing the message 3 seconds after the page load
+                        setTimeout(function () {
+                            document.querySelector('.msg').remove();
+                        }, 3000)
+                    })();
+                </script>
+                <?php
+            endif;
+            // clearing the message
+            unset($_SESSION['message']);
+            ?>
             <div class="title-login">
                 <h1>Login</h1>
             </div>
@@ -63,25 +83,27 @@
                 <div class="param">or</div>
                 <div class="or"></div>
             </div>
-            <div class="form-content">
-                <div class="title">Continue whit Email</div>
-                <div class="inputs">
-                    <div class="input useremail">
-                        <input type="text" name="email" id="email" placeholder="Username or Email">
+            <form action="login_query.php" method="POST">
+                <div class="form-content">
+                    <div class="title">Continue whit Email</div>
+                    <div class="inputs">
+                        <div class="input useremail">
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                        <div class="input password">
+                            <input type="password" class="form-control" name="password" />
+                        </div>
                     </div>
-                    <div class="input password">
-                        <input type="password" name="password" id="password" placeholder="Password">
+                    <div class="forgot">
+                        <a href="#">Forgot your password ?</a>
+                        <br> or <br>
+                        <a href="registration.php" target="_blank">Register now !</a>
+                    </div>
+                    <div class="button">
+                        <button type="submit" name="login">LOG IN</button>
                     </div>
                 </div>
-                <div class="forgot">
-                    <a href="#">Forgot your password ?</a>
-                    <br> or <br>
-                    <a href="./index-registration-page.html" target="_blank">Register now !</a>
-                </div>
-                <div class="button">
-                    <button type="submit">LOG IN</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

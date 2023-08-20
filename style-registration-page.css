@@ -24,6 +24,16 @@ body {
     overflow: hidden;
 }
 
+h4.first-last-name {
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+a.log-out {
+    text-decoration: none;
+    color: rgb(63, 34, 102);
+}
+
 /* KEYFRAMES */
 
 @-webkit-keyframes animateCloud {
